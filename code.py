@@ -53,7 +53,7 @@ if __name__ == "__main__":
     sc = spark.sparkContext
     
     #To get the tip data
-    text_file1 = sc.textFile("D:\Big_Data_Analytics\Project\yellow_tripdata_2016-06.csv")\
+    text_file1 = sc.textFile("yellow_tripdata_2016-06.csv")\
                 .map( lambda lines: lines.split(","))\
                 .map( lambda lines : (lines[4], lines[15]))\
                 .filter( lambda lines: not (lines[0] == 'trip_distance' or lines[1] == 'trip_distance'))\
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     file.write(str(float(sum_tip / sum_distance))) 
      
     #Get total count for different boroughs
-    text_file2 = sc.textFile("D:\Big_Data_Analytics\Project\yellow_tripdata_2015-12.csv")\
+    text_file2 = sc.textFile("yellow_tripdata_2015-12.csv")\
                 .map( lambda lines: lines.split(","))\
                 .map( lambda lines : (lines[9], lines[10]))\
                 .map( lambda lines : (lines[0] , lines[1]))\
@@ -86,7 +86,7 @@ if __name__ == "__main__":
     file.write(str(text_file2))
     
     #Get disputed count for different boroughs   
-    text_file3 = sc.textFile("D:\Big_Data_Analytics\Project\yellow_tripdata_2015-12.csv")\
+    text_file3 = sc.textFile("yellow_tripdata_2015-12.csv")\
                 .map( lambda lines: lines.split(","))\
                 .map( lambda lines : (lines[9], lines[10], lines[11]))\
                 .filter( lambda lines: not (lines[2] == 'payment_type'))\
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     file.write(str(text_file3))
  
     #Get Frequent Itemsets
-    text_file3 = sc.textFile("D:\Big_Data_Analytics\Project\yellow_tripdata_2015-12.csv")\
+    text_file3 = sc.textFile("yellow_tripdata_2015-12.csv")\
                 .map( lambda lines: lines.split(","))\
                 .filter( lambda lines : not lines[0].startswith('[a-zA-Z]'))\
                 .map( lambda lines : (lines[5], lines[6], lines[9] , lines[10] , lines[11]))\
@@ -115,7 +115,7 @@ if __name__ == "__main__":
     file = open("Frequent_Itemset_2015_12.txt","w")
     file.write(str(text_file3))
     
-    text_file4 = sc.textFile("D:\Big_Data_Analytics\Project\yellow_tripdata_2015-12.csv")\
+    text_file4 = sc.textFile("yellow_tripdata_2015-12.csv")\
                 .map( lambda lines: lines.split(","))\
                 .map( lambda lines : (lines[4], lines[15],lines[9],lines[10]))\
                 .filter( lambda lines: not (lines[0] == 'trip_distance' or lines[1] == 'trip_distance'))\
