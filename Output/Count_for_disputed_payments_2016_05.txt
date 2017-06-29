@@ -1,0 +1,1 @@
+[('Staten Island', 2), ('Queens', 3095), ('The Bronx', 310), ('Manhattan', 5505), ('Brooklyn', 452)]

@@ -1,0 +1,3 @@
+Total Distance travelled is : 33896433.01000392
+Total tip amount is : 20512879.539998505
+Tip amount per mile is : 0.6051633673060673
